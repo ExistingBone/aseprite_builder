@@ -75,7 +75,7 @@ jobs:
         uses: seanmiddleditch/gha-setup-ninja@v4
       - name: (Windows) Uninstall OpenSSL
         if: matrix.os == 'windows-latest'
-        run: C:\Program Files\OpenSSL\unins000.exe /silent /suppressmsgboxes
+        run: call "C:\Program Files\OpenSSL\unins000.exe /silent /suppressmsgboxes"
       - name: (Ubuntu) Install dependencies
         if: matrix.os == 'ubuntu-latest'
         run: sudo apt update && sudo apt install -y cmake ninja-build libxcursor-dev libxi-dev libgl1-mesa-dev
