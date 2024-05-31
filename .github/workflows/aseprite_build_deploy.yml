@@ -70,12 +70,11 @@ jobs:
          os: [windows-latest]
        fail-fast: false
     steps:
-      - name: (Windows) Install and set dependencies
+      - name: (Windows) Install dependencies
         if: matrix.os == 'windows-latest'
         shell: powershell
         run: |
-          choco install ninja
-          $env:OPENSSL_ROOT_DIR = "C:\Program Files\OpenSSL"
+          choco install openssl ninja
       - name: (Ubuntu) Install dependencies
         if: matrix.os == 'ubuntu-latest'
         run: sudo apt update && sudo apt install -y cmake ninja-build libxcursor-dev libxi-dev libgl1-mesa-dev
